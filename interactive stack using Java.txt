@@ -1,0 +1,89 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package data_structures;
+import java.util.Arrays;
+import javax.swing.*;
+/**
+ *
+ * @author ops.mummidcmp01
+ */
+public class interactive_stack {
+    static int top=-1;
+    static int [] a=new int[5];
+    
+    static void display()
+    {
+        JOptionPane.showMessageDialog(null, "welcome to stack");
+        
+        int ch=0;
+        while(ch!=4)
+        {
+           String st= JOptionPane.showInputDialog(null,"what would you like to do:"
+                + " 1.Push 2. Pop 3. Peek 4. Exit");
+           ch=Integer.parseInt(st);
+           
+           switch(ch)
+           {
+               case 1: String p=JOptionPane.showInputDialog("Enter the integer value you want to push");
+                       int i=Integer.parseInt(p);
+                       push(i);
+                       break;
+               
+               case 2: JOptionPane.showMessageDialog(null, "The poped value is: "+a[top]);
+                       pop();
+                       break;
+                       
+               case 3: JOptionPane.showMessageDialog(null,"The Stack is as follows : "+ peek() );
+                        
+                       break;
+              
+               case 4: break;
+               
+               
+               default: JOptionPane.showMessageDialog(null, "wrong choice mate, try again");
+                        break;
+               
+           }
+           
+        }
+    }
+    
+    static void push(int v)
+    {
+        if(top==5)
+            System.out.println("stack overflow");
+        else
+        {
+            /*if(top==-1)
+                top++;*/
+            
+            top++;
+            a[top]=v;
+            
+            
+        }
+    }
+    
+    static void  pop()
+    {
+        if(top==-1)
+            System.out.println("stack empty/underflow");
+        else
+        {
+            a[top]=0;
+           top--;
+        }
+    }
+    
+    static String peek()
+    {
+        return Arrays.toString(a);
+        
+    }
+            
+    
+    
+}
