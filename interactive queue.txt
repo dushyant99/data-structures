@@ -1,0 +1,92 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package data_structures;
+import javax.swing.*;
+import java.util.Arrays;
+/**
+ *
+ * @author ops.mummidcmp01
+ */
+public class interactive_queue {
+    static int front=-1;
+    static int rear=-1;
+    static int [] a=new int[5];
+    
+    static void add()
+    {
+        
+        if(rear==4)
+        {
+            JOptionPane.showMessageDialog(null, "Queue is full");
+            return;
+        }
+        if(front==-1 && rear==-1)
+        {
+            String rt=JOptionPane.showInputDialog("Enter a number");
+                        int v=Integer.parseInt(rt);
+            front++;
+            rear++;
+        a[rear]=v;
+        }
+               
+        else
+        {     
+            String rt=JOptionPane.showInputDialog("Enter a number");
+                        int v=Integer.parseInt(rt);
+        rear++;
+        a[rear]=v;
+        }
+    }
+    
+    static void delete()
+    {
+        if(front>rear)
+         JOptionPane.showMessageDialog(null, "Queue empty, nothing to delete");
+        else
+        {
+        JOptionPane.showMessageDialog(null, "The element getting deleted is:"+a[front]);
+        a[front]=0;
+        front++;
+        }
+        
+    }
+    
+    static String print()
+    {
+        return Arrays.toString(a);
+    }
+    
+    static void queue()
+    {
+        int ch=0;
+        JOptionPane.showMessageDialog(null, "Welcome to Queue ");
+        
+        
+        while(ch!=4)
+        {
+            String st=JOptionPane.showInputDialog("What would you like to do \n 1.ADD 2.DELETE 3.PRINT 4.EXIT");
+        
+        ch=Integer.parseInt(st);
+            switch(ch)
+            {
+                case 1: add();
+                        break;
+                        
+                
+                case 2: delete();
+                        break;
+                  
+                case 3: JOptionPane.showMessageDialog(null,"The Queue is as follows:" + print());
+                        break;
+                
+                case 4: break;
+                
+                default: JOptionPane.showMessageDialog(null, "wrong choice dude");
+            }
+        }
+    }
+    
+}
