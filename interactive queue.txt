@@ -23,21 +23,15 @@ public class interactive_queue {
             JOptionPane.showMessageDialog(null, "Queue is full");
             return;
         }
-        if(front==-1 && rear==-1)
-        {
-            String rt=JOptionPane.showInputDialog("Enter a number");
-                        int v=Integer.parseInt(rt);
-            front++;
-            rear++;
-        a[rear]=v;
-        }
-               
         else
-        {     
-            String rt=JOptionPane.showInputDialog("Enter a number");
+        {
+        String rt=JOptionPane.showInputDialog("Enter a number");
                         int v=Integer.parseInt(rt);
+        if(front==-1)
+        front++;
+
         rear++;
-        a[rear]=v;
+        a[rear]=v;        
         }
     }
     
