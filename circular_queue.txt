@@ -1,0 +1,82 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+//understand from http://btechsmartclass.com/DS/U2_T10.html
+//http://www.geeksforgeeks.org/circular-queue-set-1-introduction-array-implementation/
+//http://datastructuresinterview.blogspot.in/2012/10/enqueue-and-dequeue-in-circular-queue.html
+
+package data_structures;
+
+/**
+ *
+ * @author ops.mummidcmp01
+ */
+public class circular_queue {
+    static int size=5;
+    static int[] a=new int[size];
+    static int front=-1;
+    static int rear=-1;
+    
+    static void enqueue(int v)
+    {
+        if((rear==size-1 && front==0) || (rear+1==front) )
+            System.out.println("\n queue overflow");
+        else
+        {
+            if(rear==size-1 && front!=0)
+                 rear=-1;
+                 
+            a[++rear]=v;
+                        
+            
+            if(front==-1)
+                front++;
+        }
+            
+    }
+    
+    static void dequeue()
+    {
+        if(front==-1)
+            System.out.println("\n queue is empty");
+        else
+        {
+            System.out.println("\n deleted element= "+a[front++]);
+            if(front==size)
+                front=0;
+            if(front-1==rear)
+                front=rear=-1;
+        }
+    }
+    
+    static void print()
+    {
+        if(front==-1)
+        {    
+        System.out.println("\n queue is empty");
+        return;
+        }
+        
+        System.out.print("\n elements in queue are: ");
+        if(rear>=front)
+        {
+            for (int i = front; i <= rear; i++) 
+                System.out.print(" "+a[i]);
+        }
+        else
+        {
+                for (int i = front; i < size; i++)
+                 System.out.print(" "+a[i]);
+                    
+              for (int i = 0; i <= rear; i++) 
+                System.out.print(" "+a[i]);
+                }
+            
+              
+            
+     }
+    }
+
+
