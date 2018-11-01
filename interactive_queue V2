@@ -1,0 +1,94 @@
+/*
+ main program code
+---------------------
+
+interactive_queue.queue();
+ */
+
+
+package hello;
+import javax.swing.*;
+import java.util.Arrays;
+
+
+
+public class interactive_queue {
+    static int last = -1;
+    static int [] a = new int[5];
+    
+    
+    static void add()
+    {
+        if(last == 4)
+            JOptionPane.showMessageDialog(null,"Queue is full");
+        else
+        {
+            String rt = JOptionPane.showInputDialog("enter a number");
+            int i = Integer.parseInt(rt);
+            last++;
+            a[last] = i;
+            
+        }
+    }
+    
+    static int delete()
+    {
+        int temp;
+        if(last == -1)
+        {
+            JOptionPane.showMessageDialog(null,"Queue is Empty");
+            return 0;
+        }
+        else
+        {
+            temp = a[0];
+            for (int i = 0; i < last; i++) 
+                a[i] = a[i+1];
+            a[last] = 0;
+            last--;
+            
+        }
+        return temp;
+    }
+    
+    static String print()
+    {
+        return Arrays.toString(a);
+    }
+    
+    static void queue()
+    {
+        int ch=0;
+        JOptionPane.showMessageDialog(null, "Welcome to Queue ");
+        
+        
+        while(ch!=4)
+        {
+            String st=JOptionPane.showInputDialog("What would you like to do \n 1.ADD 2.DELETE 3.PRINT 4.EXIT");
+        
+        ch=Integer.parseInt(st);
+            switch(ch)
+            {
+                case 1: add();
+                        break;
+                        
+                
+                case 2: int i = delete();
+                        JOptionPane.showMessageDialog(null,"The element getting deleted is = " + i);
+                        break;
+                  
+                case 3: JOptionPane.showMessageDialog(null,"The Queue is as follows:" + print());
+                        break;
+                
+                case 4: break;
+                
+                default: JOptionPane.showMessageDialog(null, "wrong choice dude");
+            }
+        }
+    }
+    
+}
+    
+
+
+
